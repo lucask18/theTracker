@@ -51,12 +51,16 @@ function App() {
   
   
   useEffect(() => {
-    getData();
-  }, [1000]);
+    const interval = setInterval(() => {
+      getData();
+    }, 1000);
+  }, []);
+
+  setInterval(getData, 1000)  
 
   function callback(data) {
     data.sort((a, b) => (a.date) - (b.date));
-    setDataset(data);
+    setDataset(data); 
   }
 
   let location = []
